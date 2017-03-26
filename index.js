@@ -6,3 +6,5 @@ const Tree = {
         return a + b + c;
     },
 };
+
+export default Tree;
