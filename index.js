@@ -7,4 +7,8 @@ const Dungeon = {
     },
 };
 
-module.exports = Object.assign(Dungeon);
+function NewDungeon() {
+  return Object.assign(Dungeon);
+}
+
+module.exports = NewDungeon;
