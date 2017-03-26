@@ -7,4 +7,4 @@ const Dungeon = {
     },
 };
 
-module.exports = Dungeon;
+module.exports = Object.assign(Dungeon);
