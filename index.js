@@ -1,4 +1,4 @@
-const Tree = {
+const Dungeon = {
     a: "a",
     b: "b",
     c: "c",
@@ -7,4 +7,4 @@ const Tree = {
     },
 };
 
-export default Tree;
+module.exports = Dungeon;
