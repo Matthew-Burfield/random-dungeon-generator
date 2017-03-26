@@ -11,7 +11,7 @@ const Dungeon = {
 };
 
 function NewDungeon(a = "a") {
-  const dungeon = Object.assign(Dungeon);
+  const dungeon = Object.create(Dungeon);
   dungeon.init(a);
   return dungeon;
 }
