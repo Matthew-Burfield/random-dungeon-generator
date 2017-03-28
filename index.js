@@ -4,7 +4,7 @@ const Dungeon = {
       this.level = Array.apply(null, {length: height}).map(() => Array.apply(null, {length: width}));
       this.minRoomSize = 3;
       this.maxRoomSize = 5;
-      this.counter = 0;
+      this.counter = 2;
       this.tree = {
         level: this.level,
       }
@@ -18,6 +18,10 @@ const Dungeon = {
       const indexToSplit = randomIndexBetweenValues(min, max);
       let firstRoom = undefined,
           secondRoom = undefined;
+
+      /**
+       * Split the rooms either vertically or horizontally
+       */
       if (direction === 'vertical') {
         firstRoom = parentRoom.map(row => row.slice(0, indexToSplit));
         secondRoom = parentRoom.map(row => row.slice(indexToSplit, row.length));
@@ -26,11 +30,18 @@ const Dungeon = {
         secondRoom = parentRoom.slice(indexToSplit, parentRoom.length);
       }
 
+      /**
+       * Add unique values to each of the rooms. I want to do this so that I can
+       * visually see the different rooms.
+       */
       this.counter += 1;
       firstRoom = firstRoom.map(row => row.map(() => this.counter));
       this.counter += 1
       secondRoom = secondRoom.map(row => row.map(() => this.counter));
 
+      /**
+       * Create a object that records each of the nodes so I can trace it.
+       */
       node.splitDirection = direction;
       node.splitIndex = indexToSplit;
       node.leftNode = {
@@ -40,14 +51,29 @@ const Dungeon = {
         level: secondRoom,
       };
 
+      /**
+       * If the rooms are still bigger than the max size, split them again.
+       */
       if (firstRoom.length > this.maxRoomSize && firstRoom[0].length > this.maxRoomSize) {
         firstRoom = this.split(node.leftNode);
       }
       if (secondRoom.length > this.maxRoomSize && secondRoom[0].length > this.maxRoomSize) {
         secondRoom = this.split(node.rightNode);
       }
-      
+
+      ////// THE ROOMS ARE NOW AT THE SMALLEST NODES
+
+      /**
+       * The room is at it's smallest, we can now add boundaries.
+       */
+      firstRoom = AddRoomBoundaries(firstRoom);
+      secondRoom = AddRoomBoundaries(secondRoom);
+
+      /**
+       * Join the rooms back together
+       */
       if (direction === 'vertical') {
+
         firstRoom = firstRoom.reduce((obj, val, index) => {
           let temp = [];
           temp.push(...firstRoom[index]);
@@ -58,12 +84,11 @@ const Dungeon = {
         
       } else {
 
-        // secondRoom and firstRoom aren't always the same length. secondRoom[index] fails.
         firstRoom.push(...secondRoom);
-      }
-      return firstRoom;
 
-      // console.log(parentRoom.length, parentRoom[0].length, indexToSplit, firstRoom, secondRoom);
+      }
+
+      return firstRoom;
     },
 };
 
@@ -100,6 +125,28 @@ function NewDungeon(width = 50, height = 50) {
   return dungeon.init(width, height);
 }
 
+/**
+ * Add blocking tiles around the parameter of the 2d array
+ * 
+ * @param {array} array 2d array representing a room
+ */
+function AddRoomBoundaries(array) {
+  const height = array.length - 1;
+  const width = array[0].length - 1;
+  array = array.map((row, rIndex) => {
+    return row.map((col, cIndex) => {
+      if (rIndex === 0 || rIndex === height) {
+        return 1;
+      }
+      if (cIndex === 0 || cIndex === width) {
+        return 1;
+      }
+      return col;
+    });
+  });
+  return array;
+}
+
 //var a = NewDungeon(50,50);
 
-module.exports = NewDungeon;
+//module.exports = NewDungeon;
