@@ -149,4 +149,4 @@ function AddRoomBoundaries(array) {
 
 //var a = NewDungeon(50,50);
 
-//module.exports = NewDungeon;
+module.exports = NewDungeon;
