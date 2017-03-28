@@ -112,12 +112,16 @@ const Dungeon = {
         // For vertical cut, the corridor will be horizontal. So somewhere along the 0 -> firstRoom.length axis
         const vIndex = Math.floor(Math.random() * (firstRoom.length - 1)) + 1;
         firstRoom[vIndex][firstRoom[0].length - 1] = 0;
+        firstRoom[vIndex][firstRoom[0].length - 2] = 0;
         secondRoom[vIndex][0] = 0;
+        secondRoom[vIndex][1] = 0;
       } else {
       // For horizontal cut, the corridor will be vertical. So somewhere along the firstRoom[row[0]] -> firstRoom[row.length] axis
         const hIndex = Math.floor(Math.random() * (firstRoom[0].length - 1)) + 1;
         firstRoom[firstRoom.length - 1][hIndex] = 0;
+        firstRoom[firstRoom.length - 2][hIndex] = 0;
         secondRoom[0][hIndex] = 0;
+        secondRoom[1][hIndex] = 0;
       }
 
       /**
