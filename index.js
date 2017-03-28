@@ -1,5 +1,5 @@
 const Dungeon = {
-    init(width, height) {
+    init(width, height, minRoomSize, maxRoomSize) {
       // Create an empty 2D array width x height
       this.level = Array.apply(null, {length: height}).map(() => Array.apply(null, {length: width}));
       this.minRoomSize = 5;
@@ -8,7 +8,7 @@ const Dungeon = {
       this.tree = {
         level: this.level,
       }
-      this.level = this.split(this.tree, randomDirection());
+      return this.split(this.tree, randomDirection());
     },
     setMinRoomSize(num) {
       if (num > this.maxRoomSize) {
@@ -163,12 +163,13 @@ function randomIndexBetweenValues(min, max) {
  * 
  * @param {number} [width=50] 
  * @param {number} [height=50] 
+ * @param {number} [minRoomSize=5]
+ * @param {number} [maxRoomSize=20]
  * @returns dungeon object
  */
-function NewDungeon(width = 50, height = 50) {
+function NewDungeon({width = 50, height = 50, minRoomSize = 5, maxRoomSize = 20}) {
   const dungeon = Object.create(Dungeon);
-  dungeon.init(width, height);
-  return dungeon;
+  return dungeon.init(width, height, minRoomSize, maxRoomSize);
 }
 
 /**
