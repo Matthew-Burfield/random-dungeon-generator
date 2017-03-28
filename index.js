@@ -106,11 +106,26 @@ const Dungeon = {
       secondRoom = AddRoomBoundaries(secondRoom);
 
       /**
+       * Both rooms now have boundary walls. Add a pathway at a random index.
+       */
+      if (direction === 'vertical') {
+        // For vertical cut, the corridor will be horizontal. So somewhere along the 0 -> firstRoom.length axis
+        const vIndex = Math.floor(Math.random() * (firstRoom.length - 1)) + 1;
+        firstRoom[vIndex][firstRoom[0].length - 1] = 0;
+        secondRoom[vIndex][0] = 0;
+      } else {
+      // For horizontal cut, the corridor will be vertical. So somewhere along the firstRoom[row[0]] -> firstRoom[row.length] axis
+        const hIndex = Math.floor(Math.random() * (firstRoom[0].length - 1)) + 1;
+        firstRoom[firstRoom.length - 1][hIndex] = 0;
+        secondRoom[0][hIndex] = 0;
+      }
+
+      /**
        * Join the rooms back together
        */
       if (direction === 'vertical') {
 
-        firstRoom = firstRoom.reduce((obj, val, index) => {
+        return firstRoom.reduce((obj, val, index) => {
           let temp = [];
           temp.push(...firstRoom[index]);
           temp.push(...secondRoom[index]);
@@ -118,12 +133,10 @@ const Dungeon = {
             return obj;
         }, []);
         
-      } else {
-
-        firstRoom.push(...secondRoom);
-
       }
 
+      // If we get to this point, then the slice was horizontal
+      firstRoom.push(...secondRoom);
       return firstRoom;
     },
 };
