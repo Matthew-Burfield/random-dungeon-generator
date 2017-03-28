@@ -2,13 +2,27 @@ const Dungeon = {
     init(width, height) {
       // Create an empty 2D array width x height
       this.level = Array.apply(null, {length: height}).map(() => Array.apply(null, {length: width}));
-      this.minRoomSize = 4;
-      this.maxRoomSize = 10;
+      this.minRoomSize = 5;
+      this.maxRoomSize = 20;
       this.counter = 2;
       this.tree = {
         level: this.level,
       }
-      return this.split(this.tree, randomDirection());
+      this.level = this.split(this.tree, randomDirection());
+    },
+    setMinRoomSize(num) {
+      if (num > this.maxRoomSize) {
+        throw "Minimum room size cannot be larger than the maximum room size of " + this.maxRoomSize;
+        return;
+      }
+      this.minRoomSize = num;
+    },
+    setMaxRoomSize(num) {
+      if (num < this.minRoomSize) {
+        throw "Maximum room size cannot be smaller than the minumum room size of " + this.minRoomSize;
+        return;
+      }
+      this.minRoomSize = num;
     },
     split(node, direction) {
       const parentRoom = node.level;
@@ -153,7 +167,8 @@ function randomIndexBetweenValues(min, max) {
  */
 function NewDungeon(width = 50, height = 50) {
   const dungeon = Object.create(Dungeon);
-  return dungeon.init(width, height);
+  dungeon.init(width, height);
+  return dungeon;
 }
 
 /**
