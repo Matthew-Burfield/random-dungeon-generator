@@ -2,17 +2,16 @@ const Dungeon = {
     init(width, height) {
       // Create an empty 2D array width x height
       this.level = Array.apply(null, {length: height}).map(() => Array.apply(null, {length: width}));
-      this.minRoomSize = 3;
-      this.maxRoomSize = 5;
+      this.minRoomSize = 4;
+      this.maxRoomSize = 10;
       this.counter = 2;
       this.tree = {
         level: this.level,
       }
-      return this.split(this.tree);
+      return this.split(this.tree, randomDirection());
     },
-    split(node) {
+    split(node, direction) {
       const parentRoom = node.level;
-      const direction = fiftyfifty() === 1 ? 'vertical' : 'horizontal';
       const min = this.minRoomSize;
       const max = direction === 'vertical' ? parentRoom[0].length - min : parentRoom.length - min;
       const indexToSplit = randomIndexBetweenValues(min, max);
@@ -55,10 +54,33 @@ const Dungeon = {
        * If the rooms are still bigger than the max size, split them again.
        */
       if (firstRoom.length > this.maxRoomSize && firstRoom[0].length > this.maxRoomSize) {
-        firstRoom = this.split(node.leftNode);
+        firstRoom = this.split(node.leftNode, randomDirection());
       }
+      /**
+       * Check only the vertical and horizontal lengths
+       */
+      if (firstRoom.length > this.maxRoomSize) {
+        // vertically, the room is still too long.
+        firstRoom = this.split(node.leftNode, 'horizontal');
+      }
+      if (firstRoom[0].length > this.maxRoomSize) {
+        // horizontally, the room is still too big.
+        firstRoom = this.split(node.leftNode, 'vertical');
+      }
+
       if (secondRoom.length > this.maxRoomSize && secondRoom[0].length > this.maxRoomSize) {
-        secondRoom = this.split(node.rightNode);
+        secondRoom = this.split(node.rightNode, randomDirection());
+      }
+      /**
+       * Check only the vertical and horizontal lengths
+       */
+      if (secondRoom.length > this.maxRoomSize) {
+        // vertically, the room is still too long.
+        secondRoom = this.split(node.rightNode, 'horizontal');
+      }
+      if (secondRoom[0].length > this.maxRoomSize) {
+        // horizontally, the room is still too big.
+        secondRoom = this.split(node.rightNode, 'vertical');
       }
 
       ////// THE ROOMS ARE NOW AT THE SMALLEST NODES
@@ -100,6 +122,15 @@ const Dungeon = {
  */
 function fiftyfifty() {
   return Math.floor((Math.random() * 2) + 1) % 2;
+}
+
+/**
+ * Return a random direction of vertical or horizontal
+ * 
+ * @returns {string} 'vertical' or 'horizontal'
+ */
+function randomDirection() {
+  return fiftyfifty() === 1 ? 'vertical' : 'horizontal';
 }
 
 /**
@@ -148,5 +179,5 @@ function AddRoomBoundaries(array) {
 }
 
 //var a = NewDungeon(50,50);
-
+if (!module) { var module = {}; };
 module.exports = NewDungeon;
