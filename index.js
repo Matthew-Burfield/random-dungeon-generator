@@ -128,7 +128,9 @@ const Dungeon = {
       node.corridorIndex = undefined;
       if (node.splitDirection === VERTICAL) {
         // For vertical cut, the corridor will be horizontal. So somewhere along the 0 -> firstRoom.length axis
-        const vIndex = Math.floor(Math.random() * (lNode.length - 1)) + 1;
+        // Don't put the corridor on the outer most index values (0 and length - 1) because
+        // that can allow the corridor to be on the map boundary
+        const vIndex = randomIndexBetweenValues(1, lNode.length - 2);
         node.corridorIndex = vIndex;
         lNode[vIndex][lNode[0].length - 1] = 0;
         lNode[vIndex][lNode[0].length - 2] = 0;
@@ -136,7 +138,7 @@ const Dungeon = {
         rNode[vIndex][1] = 0;
       } else {
       // For horizontal cut, the corridor will be vertical. So somewhere along the firstRoom[row[0]] -> firstRoom[row.length] axis
-        const hIndex = Math.floor(Math.random() * (lNode[0].length - 1)) + 1;
+        const hIndex = randomIndexBetweenValues(1, lNode[0].length - 2);
         node.corridorIndex = hIndex;
         lNode[lNode.length - 1][hIndex] = 0;
         lNode[lNode.length - 2][hIndex] = 0;

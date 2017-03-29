@@ -2,5 +2,9 @@
     <body>
         <div id="root"/>
         <script src="index.js"></script>
+        <script>
+            var level = NewDungeon({});
+            DrawDungeonTree(document.getElementById('root'), level.level);
+        </script>
     </body>
 </html>
