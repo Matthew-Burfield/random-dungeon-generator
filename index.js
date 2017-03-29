@@ -108,9 +108,11 @@ const Dungeon = {
       /**
        * Both rooms now have boundary walls. Add a pathway at a random index.
        */
+      node.corridorIndex = undefined;
       if (direction === 'vertical') {
         // For vertical cut, the corridor will be horizontal. So somewhere along the 0 -> firstRoom.length axis
         const vIndex = Math.floor(Math.random() * (firstRoom.length - 1)) + 1;
+        node.corridorIndex = vIndex;
         firstRoom[vIndex][firstRoom[0].length - 1] = 0;
         firstRoom[vIndex][firstRoom[0].length - 2] = 0;
         secondRoom[vIndex][0] = 0;
@@ -118,6 +120,7 @@ const Dungeon = {
       } else {
       // For horizontal cut, the corridor will be vertical. So somewhere along the firstRoom[row[0]] -> firstRoom[row.length] axis
         const hIndex = Math.floor(Math.random() * (firstRoom[0].length - 1)) + 1;
+        node.corridorIndex = hIndex;
         firstRoom[firstRoom.length - 1][hIndex] = 0;
         firstRoom[firstRoom.length - 2][hIndex] = 0;
         secondRoom[0][hIndex] = 0;
@@ -144,6 +147,8 @@ const Dungeon = {
       return firstRoom;
     },
 };
+
+const dungeon = Object.create(Dungeon);
 
 /**
  * 50% chance of returning a 0
@@ -185,10 +190,28 @@ function randomIndexBetweenValues(min, max) {
  * @returns dungeon object
  */
 function NewDungeon({width = 50, height = 50, minRoomSize = 5, maxRoomSize = 20}) {
-  const dungeon = Object.create(Dungeon);
+  
   return dungeon.init(width, height, minRoomSize, maxRoomSize);
 }
 
+function DrawDungeonTree(div) {
+  const arr = NewDungeon({});
+  arr.forEach(row => {
+    const outerDiv = document.createElement('div');
+    row.forEach(tile => {
+      const innerDiv = document.createElement('div');
+      innerDiv.innerText = tile;
+      innerDiv.style.display = "inline-block";
+      innerDiv.style.width = "25px";
+      innerDiv.style.height = "20px";
+      outerDiv.appendChild(innerDiv);
+    });
+    div.appendChild(outerDiv);
+  });
+}
+
+    
+    
 /**
  * Add blocking tiles around the parameter of the 2d array
  * 
