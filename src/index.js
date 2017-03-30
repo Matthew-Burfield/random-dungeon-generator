@@ -218,8 +218,9 @@ function randomIndexBetweenValues(min, max) {
  */
 function NewDungeon({width = 50, height = 50, minRoomSize = 5, maxRoomSize = 20}) {
   dungeon.init(width, height, minRoomSize, maxRoomSize);
-  return dungeon.tree;
+  return dungeon.tree.level;
 }
+
 
 function DrawDungeonTree(div, arr) {
   arr.forEach(row => {
@@ -260,6 +261,4 @@ function AddRoomBoundaries(array) {
   return array;
 }
 
-//var a = NewDungeon(50,50);
-if (!module) { var module = {}; };
 module.exports = NewDungeon;
