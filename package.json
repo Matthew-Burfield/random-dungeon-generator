@@ -5,8 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets es2015 -d lib/ src/",
-    "publish": "npm version patch && npm publish"
+    "build": "babel --presets es2015 -d lib/ src/"
   },
   "repository": {
     "type": "git",
