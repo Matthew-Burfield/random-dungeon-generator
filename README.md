@@ -1,6 +1,7 @@
 ###Random Dungeon Generator
 
-Create a Random Dungeon
+Create a Random Dungeon using a procedural dungeon generator.
+Based on a BSP Tree algorithm [http://www.roguebasin.com/index.php?title=Basic_BSP_Dungeon_generation](http://www.roguebasin.com/index.php?title=Basic_BSP_Dungeon_generation)
 
 ##Simplest Example
 
