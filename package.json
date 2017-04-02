@@ -1,6 +1,6 @@
 {
   "name": "random-dungeon-generator",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "Generate a 2d array with random rooms",
   "main": "lib/index.js",
   "scripts": {
