@@ -278,4 +278,3 @@ const NewDungeon = function NewDungeon({width = 50, height = 50, minRoomSize = 5
 
 } // end NewDungeon
 
-export default NewDungeon;
