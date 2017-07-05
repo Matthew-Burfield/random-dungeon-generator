@@ -88,23 +88,6 @@ export const NewDungeon = (settings) => {
       this.connectRooms(this.tree)
     },
 
-
-    setMinRoomSize(num) {
-      if (num > this.maxRoomSize) {
-        throw new Error(`Minimum room size cannot be larger than the maximum room size of ${this.maxRoomSize}`)
-      }
-      this.minRoomSize = num
-    },
-
-
-    setMaxRoomSize(num) {
-      if (num < this.minRoomSize) {
-        throw new Error(`Maximum room size cannot be smaller than the minimum room size of ${this.minRoomSize}`)
-      }
-      this.minRoomSize = num
-    },
-
-
     /**
      * Given a 2d array (node.level), this function will split the room into two separate arrays
      * and store then in node.lNode.level and node.rNode.level.
@@ -269,17 +252,6 @@ export const NewDungeon = (settings) => {
       }
     },
   }
-
-
-  // /**
-  //  * 50% chance of returning a 0
-  //  * 50% chance of returning a 1
-  //  *
-  //  * @returns {number} 0 or 1
-  //  */
-  // function fiftyfifty() {
-  //   return randomIndexBetweenValues(0, 1)
-  // }
 
   const dungeon = Object.create(Dungeon)
   const { width, height, minRoomSize, maxRoomSize } = setDefaultValues(settings)
