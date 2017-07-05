@@ -12,9 +12,9 @@ export function sum(a, b) {
  * @param {number} max maximum random number to return
  * @returns {number}
  */
-function randomIndexBetweenValues(min, max) {
-  return Math.floor((Math.random() * ((max - min) + 1)) + min)
-}
+const randomIndexBetweenValues = (min, max) => (
+  Math.floor((Math.random() * ((max - min) + 1)) + min)
+)
 
 /**
  * Return a random direction of vertical or horizontal
@@ -48,6 +48,18 @@ function AddRoomBoundaries(array) {
   )
 }
 
+const setDefaultValues = (settings) => {
+  if (settings) {
+    return {
+      width: settings.width || 50,
+      height: settings.height || 50,
+      minRoomSize: settings.minRoomSize || 5,
+      maxRoomSize: settings.maxRoomSize || 20,
+    }
+  }
+  return { width: 50, height: 50, minRoomSize: 5, maxRoomSize: 20 }
+}
+
 /**
  * Function used to create a new dungeon object
  *
@@ -57,9 +69,7 @@ function AddRoomBoundaries(array) {
  * @param {number} [maxRoomSize=20]
  * @returns dungeon object
  */
-export const NewDungeon = function (
-  { width = 50, height = 50, minRoomSize = 5, maxRoomSize = 20 },
-) {
+export const NewDungeon = (settings) => {
   const Dungeon = {
 
     init(width, height, minRoomSize, maxRoomSize) {
@@ -272,6 +282,9 @@ export const NewDungeon = function (
   // }
 
   const dungeon = Object.create(Dungeon)
+  const { width, height, minRoomSize, maxRoomSize } = setDefaultValues(settings)
   dungeon.init(width, height, minRoomSize, maxRoomSize)
   return dungeon.tree.level
 } // end NewDungeon
+
+export default NewDungeon
