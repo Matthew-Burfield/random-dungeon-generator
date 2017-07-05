@@ -11,7 +11,8 @@
     "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",
     "build:umd": "webpack --output-filename index.umd.js",
     "build:umd.min": "webpack --output-filename index.umd.min.js -p",
-    "report-coverage": "cat ./coverage/lcov.info | codecov"
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release pre & npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
     "npm-run-all": "^4.0.2",
+    "semantic-release": "^6.3.6",
     "webpack": "^3.0.0"
   },
   "babel": {
