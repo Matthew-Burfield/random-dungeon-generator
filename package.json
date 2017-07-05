@@ -2,26 +2,54 @@
   "name": "random-dungeon-generator",
   "version": "1.0.30",
   "description": "Generate a 2d array with random rooms",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets es2015 -d lib/ src/"
+    "prebuild": "rm -rf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",
+    "build:umd": "webpack --output-filename index.umd.js",
+    "build:umd.min": "webpack --output-filename index.umd.min.js -p"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Matthew-Burfield/random-dungeon-generator.git"
   },
   "keywords": [
-    "JavaScript"
+    "JavaScript, Dungeon, Rogue, Like, Rogue-like, Generator, Free Code Camp, FCC"
   ],
   "author": "Matthew Burfield <burfie@hotmail.com> (https://matthew-burfield.github.io/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Matthew-Burfield/random-dungeon-generator/issues"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
   "homepage": "https://github.com/Matthew-Burfield/random-dungeon-generator#readme",
   "devDependencies": {
     "babel-cli": "6.24.0",
-    "babel-preset-es2015": "6.24.0"
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "6.24.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "commitizen": "^2.9.6",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-import": "2.6.1",
+    "eslint-plugin-node": "5.1.0",
+    "eslint-plugin-promise": "3.5.0",
+    "npm-run-all": "^4.0.2",
+    "webpack": "^3.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
   }
 }

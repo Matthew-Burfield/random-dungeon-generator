@@ -1,25 +1,7 @@
 <html>
     <body>
         <div id="root"/>
-        <script src="src/index.js"></script>
-        <script>
-            var level = NewDungeon({});
-
-            function DrawDungeonTree(div, arr) {
-                arr.forEach(row => {
-                    const outerDiv = document.createElement('div');
-                    row.forEach(tile => {
-                    const innerDiv = document.createElement('div');
-                    innerDiv.innerText = tile + ",";
-                    innerDiv.style.display = "inline-block";
-                    innerDiv.style.width = "25px";
-                    innerDiv.style.height = "20px";
-                    outerDiv.appendChild(innerDiv);
-                    });
-                    div.appendChild(outerDiv);
-                });
-            }
-            DrawDungeonTree(document.getElementById('root'), level);
-        </script>
+        <script src="dist/index.umd.js"></script>
+        <script src="dist/test.js"></script>
     </body>
 </html>
