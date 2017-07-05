@@ -1,6 +1,10 @@
 const VERTICAL = 'VERTICAL'
 const HORIZONTAL = 'HORIZONTAL'
 
+export function sum(a, b) {
+  return a + b
+}
+
 /**
  * Returns a random number between min and max
  *
@@ -53,7 +57,7 @@ function AddRoomBoundaries(array) {
  * @param {number} [maxRoomSize=20]
  * @returns dungeon object
  */
-const NewDungeon = function NewDungeon(
+export const NewDungeon = function (
   { width = 50, height = 50, minRoomSize = 5, maxRoomSize = 20 },
 ) {
   const Dungeon = {
@@ -271,6 +275,3 @@ const NewDungeon = function NewDungeon(
   dungeon.init(width, height, minRoomSize, maxRoomSize)
   return dungeon.tree.level
 } // end NewDungeon
-
-if (window) window.NewDungeon = NewDungeon
-export default NewDungeon

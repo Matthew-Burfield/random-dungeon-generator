@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.26% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/94</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.69% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/90</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const VERTICAL = 'VERTICAL'
+const HORIZONTAL = 'HORIZONTAL'
+&nbsp;
+export function sum(a, b) {
+  return a + b
+}
+&nbsp;
+/**
+ * Returns a random number between min and max
+ *
+ * @param {number} min minimum random number to return
+ * @param {number} max maximum random number to return
+ * @returns {number}
+ */
+function <span class="fstat-no" title="function not covered" >randomIndexBetweenValues(</span>min, max) {
+<span class="cstat-no" title="statement not covered" >  return Math.floor((Math.random() * ((max - min) + 1)) + min)</span>
+}
+&nbsp;
+/**
+ * Return a random direction of vertical or horizontal
+ *
+ * @returns {string} 'vertical' or 'horizontal'
+ */
+function <span class="fstat-no" title="function not covered" >randomDirection(</span>directionOptions = <span class="branch-0 cbranch-no" title="branch not covered" >[VERTICAL, HORIZONTAL])</span> {
+<span class="cstat-no" title="statement not covered" >  if (directionOptions.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >    return ''</span>
+  }
+&nbsp;
+  const numOptions = <span class="cstat-no" title="statement not covered" >directionOptions.length - 1</span>
+<span class="cstat-no" title="statement not covered" >  return directionOptions[randomIndexBetweenValues(0, numOptions)]</span>
+}
+&nbsp;
+/**
+ * Add blocking tiles around the parameter of the 2d array
+ *
+ * @param {array} array 2d array representing a room
+ */
+function <span class="fstat-no" title="function not covered" >AddRoomBoundaries(</span>array) {
+  const currHeight = <span class="cstat-no" title="statement not covered" >array.length - 1</span>
+  const currWidth = <span class="cstat-no" title="statement not covered" >array[0].length - 1</span>
+<span class="cstat-no" title="statement not covered" >  return array.map(<span class="fstat-no" title="function not covered" >(r</span>ow, rIndex) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    row.map(<span class="fstat-no" title="function not covered" >(c</span>ol, cIndex) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (rIndex === 0 || rIndex === currHeight || cIndex === 0 || cIndex === currWidth) {</span>
+<span class="cstat-no" title="statement not covered" >        return 1</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return col</span>
+    }),
+  )
+}
+&nbsp;
+/**
+ * Function used to create a new dungeon object
+ *
+ * @param {number} [width=50]
+ * @param {number} [height=50]
+ * @param {number} [minRoomSize=5]
+ * @param {number} [maxRoomSize=20]
+ * @returns dungeon object
+ */
+export const NewDungeon = <span class="fstat-no" title="function not covered" >fu</span>nction (
+  { width = <span class="branch-0 cbranch-no" title="branch not covered" >50,</span> height = <span class="branch-0 cbranch-no" title="branch not covered" >50,</span> minRoomSize = <span class="branch-0 cbranch-no" title="branch not covered" >5,</span> maxRoomSize = <span class="branch-0 cbranch-no" title="branch not covered" >20 </span>},
+) {
+  const Dungeon = <span class="cstat-no" title="statement not covered" >{</span>
+&nbsp;
+    init(width, height, minRoomSize, maxRoomSize) {
+      // Create an empty 2D array width x height
+<span class="cstat-no" title="statement not covered" >      this.minRoomSize = 5</span>
+<span class="cstat-no" title="statement not covered" >      this.maxRoomSize = 20</span>
+<span class="cstat-no" title="statement not covered" >      this.counter = 1</span>
+&nbsp;
+      // What am I trying to do here?
+<span class="cstat-no" title="statement not covered" >      this.tree = {</span>
+        level: Array.apply(null, { length: height }).map(<span class="fstat-no" title="function not covered" >()</span> =&gt; (
+<span class="cstat-no" title="statement not covered" >          Array.apply(null, { length: width }))</span>,
+        ),
+      }
+<span class="cstat-no" title="statement not covered" >      this.split(this.tree)</span>
+<span class="cstat-no" title="statement not covered" >      this.connectRooms(this.tree)</span>
+    },
+&nbsp;
+&nbsp;
+    setMinRoomSize(num) {
+<span class="cstat-no" title="statement not covered" >      if (num &gt; this.maxRoomSize) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error(`Minimum room size cannot be larger than the maximum room size of ${this.maxRoomSize}`)</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.minRoomSize = num</span>
+    },
+&nbsp;
+&nbsp;
+    setMaxRoomSize(num) {
+<span class="cstat-no" title="statement not covered" >      if (num &lt; this.minRoomSize) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error(`Maximum room size cannot be smaller than the minimum room size of ${this.minRoomSize}`)</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.minRoomSize = num</span>
+    },
+&nbsp;
+&nbsp;
+    /**
+     * Given a 2d array (node.level), this function will split the room into two separate arrays
+     * and store then in node.lNode.level and node.rNode.level.
+     * The split is random (vertical or horizontal)
+     * and can be anywhere along the axis as long as it doesn't result in making the room smaller
+     * than this.min.
+     *
+     * @param {object} node
+     */
+    split(node) {
+<span class="cstat-no" title="statement not covered" >      if (node.level.length &gt; this.maxRoomSize || node.level[0].length &gt; this.maxRoomSize) {</span>
+        // If this condition is true, then we need to split again
+&nbsp;
+        const splitDirection = <span class="cstat-no" title="statement not covered" >randomDirection(</span>
+          this.getSplitOptions(node.level.length, node.level[0].length),
+        )
+        const indexToSplit = <span class="cstat-no" title="statement not covered" >this.getIndexToSplit(</span>
+          splitDirection, node.level[0].length, node.level.length,
+        )
+&nbsp;
+        let lNode = <span class="cstat-no" title="statement not covered" >node.leftNode = {}</span>
+        let rNode = <span class="cstat-no" title="statement not covered" >node.rightNode = {}</span>
+<span class="cstat-no" title="statement not covered" >        node.splitDirection = splitDirection</span>
+<span class="cstat-no" title="statement not covered" >        node.splitIndex = indexToSplit</span>
+&nbsp;
+        /**
+         * Split the rooms either vertically or horizontally and store the
+         * new array in the left node and right nodes
+         */
+<span class="cstat-no" title="statement not covered" >        if (splitDirection === VERTICAL) {</span>
+<span class="cstat-no" title="statement not covered" >          lNode.level = node.level.map(<span class="fstat-no" title="function not covered" >ro</span>w =&gt; <span class="cstat-no" title="statement not covered" >row.slice(0, indexToSplit))</span></span>
+<span class="cstat-no" title="statement not covered" >          rNode.level = node.level.map(<span class="fstat-no" title="function not covered" >ro</span>w =&gt; <span class="cstat-no" title="statement not covered" >row.slice(indexToSplit, row.length))</span></span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          lNode.level = node.level.slice(0, indexToSplit)</span>
+<span class="cstat-no" title="statement not covered" >          rNode.level = node.level.slice(indexToSplit, node.level.length)</span>
+        }
+&nbsp;
+        /**
+         * Recursive call to split the rooms again if needed
+         */
+<span class="cstat-no" title="statement not covered" >        this.split(lNode)</span>
+<span class="cstat-no" title="statement not covered" >        this.split(rNode)</span>
+      } else {
+        /**
+         * If we reach this point, then we can guarantee that the room does not
+         * have any children nodes. I.e. it's the smallest leaf node
+         * counter is used so we can visually see the different rooms when the room is rendered
+         */
+<span class="cstat-no" title="statement not covered" >        this.counter += 1</span>
+<span class="cstat-no" title="statement not covered" >        node.level = node.level.map(<span class="fstat-no" title="function not covered" >ro</span>w =&gt; <span class="cstat-no" title="statement not covered" >row.map(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.counter)</span>)</span></span>
+<span class="cstat-no" title="statement not covered" >        node.level = AddRoomBoundaries(node.level)</span>
+      }
+    },
+&nbsp;
+    /**
+     * returns an array with the values VERTICAL if a vertical split is an option, and
+     * HORIZONTAL is a horizontal split is an option, or an empy array neither are options.
+     * Whether or not it is an option is based on if the size of the room is greater than
+     * the maximum allowed room size.
+     *
+     * @param {number} verticalLength
+     * @param {number} horizontalLength
+     * @returns {array}
+     */
+    getSplitOptions(verticalLength, horizontalLength) {
+      const directionOptions = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      if (verticalLength &gt; this.maxRoomSize) {</span>
+<span class="cstat-no" title="statement not covered" >        directionOptions.push(HORIZONTAL)</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (horizontalLength &gt; this.maxRoomSize) {</span>
+<span class="cstat-no" title="statement not covered" >        directionOptions.push(VERTICAL)</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return directionOptions</span>
+    },
+&nbsp;
+&nbsp;
+    /**
+     * Returns a random number along the vertical or horizontal axis
+     *
+     * @param {any} verticalLength
+     * @param {any} horizontalLength
+     * @returns {number}
+     */
+    getIndexToSplit(splitDirection, horizontalLength, verticalLength) {
+      const min = <span class="cstat-no" title="statement not covered" >this.minRoomSize</span>
+      const max = <span class="cstat-no" title="statement not covered" >splitDirection === VERTICAL ? horizontalLength - min : verticalLength - min</span>
+<span class="cstat-no" title="statement not covered" >      return randomIndexBetweenValues(min, max)</span>
+    },
+&nbsp;
+&nbsp;
+    /**
+     * @param {any} node
+     * @returns
+     */
+    connectRooms(node) {
+      /**
+       * First, recursively loop through all the rooms so we're starting at the
+       * lowest nodes in the tree that have child nodes, and we work our way back up.
+       */
+<span class="cstat-no" title="statement not covered" >      if (node.leftNode) {</span>
+<span class="cstat-no" title="statement not covered" >        this.connectRooms(node.leftNode)</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (node.rightNode) {</span>
+<span class="cstat-no" title="statement not covered" >        this.connectRooms(node.rightNode)</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return</span>
+      }
+&nbsp;
+      const lNode = <span class="cstat-no" title="statement not covered" >node.leftNode.level</span>
+      const rNode = <span class="cstat-no" title="statement not covered" >node.rightNode.level</span>
+&nbsp;
+&nbsp;
+      /**
+       * Since this function is called after all the rooms have been created, we know that all
+       * the rooms already have boundaries. We just need to remove the wall at a random
+       * intersecting point.
+       */
+<span class="cstat-no" title="statement not covered" >      if (node.splitDirection === VERTICAL) {</span>
+        /**
+         * For vertical cut, the corridor will be horizontal.
+         * So somewhere along the 0 -&gt; firstRoom.length axis
+         * Don't put the corridor on the outer most index values (0 and length - 1) because
+         * that can allow the corridor to be on the map boundary
+         */
+        const vIndex = <span class="cstat-no" title="statement not covered" >randomIndexBetweenValues(1, lNode.length - 2)</span>
+<span class="cstat-no" title="statement not covered" >        node.corridorIndex = vIndex</span>
+<span class="cstat-no" title="statement not covered" >        lNode[vIndex][lNode[0].length - 1] = 0</span>
+<span class="cstat-no" title="statement not covered" >        lNode[vIndex][lNode[0].length - 2] = 0</span>
+<span class="cstat-no" title="statement not covered" >        rNode[vIndex][0] = 0</span>
+<span class="cstat-no" title="statement not covered" >        rNode[vIndex][1] = 0</span>
+      } else {
+      // For horizontal cut, the corridor will be vertical.
+      // So somewhere along the firstRoom[row[0]] -&gt; firstRoom[row.length] axis
+        const hIndex = <span class="cstat-no" title="statement not covered" >randomIndexBetweenValues(1, lNode[0].length - 2)</span>
+<span class="cstat-no" title="statement not covered" >        node.corridorIndex = hIndex</span>
+<span class="cstat-no" title="statement not covered" >        lNode[lNode.length - 1][hIndex] = 0</span>
+<span class="cstat-no" title="statement not covered" >        lNode[lNode.length - 2][hIndex] = 0</span>
+<span class="cstat-no" title="statement not covered" >        rNode[0][hIndex] = 0</span>
+<span class="cstat-no" title="statement not covered" >        rNode[1][hIndex] = 0</span>
+      }
+&nbsp;
+      /**
+       * Combine the child left node and right node rooms back together, and
+       * save the result in the current level node.
+       */
+<span class="cstat-no" title="statement not covered" >      node.level = []</span>
+<span class="cstat-no" title="statement not covered" >      if (node.splitDirection === VERTICAL) {</span>
+<span class="cstat-no" title="statement not covered" >        node.level = lNode.reduce(<span class="fstat-no" title="function not covered" >(o</span>bj, val, index) =&gt; {</span>
+          const temp = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >          temp.push(...lNode[index])</span>
+<span class="cstat-no" title="statement not covered" >          temp.push(...rNode[index])</span>
+<span class="cstat-no" title="statement not covered" >          obj.push(temp)</span>
+<span class="cstat-no" title="statement not covered" >          return obj</span>
+        }, [])
+      } else {
+        // If we get to this point, then the slice was horizontal
+<span class="cstat-no" title="statement not covered" >        node.level.push(...lNode)</span>
+<span class="cstat-no" title="statement not covered" >        node.level.push(...rNode)</span>
+      }
+    },
+  }
+&nbsp;
+&nbsp;
+  // /**
+  //  * 50% chance of returning a 0
+  //  * 50% chance of returning a 1
+  //  *
+  //  * @returns {number} 0 or 1
+  //  */
+  // function fiftyfifty() {
+  //   return randomIndexBetweenValues(0, 1)
+  // }
+&nbsp;
+  const dungeon = <span class="cstat-no" title="statement not covered" >Object.create(Dungeon)</span>
+<span class="cstat-no" title="statement not covered" >  dungeon.init(width, height, minRoomSize, maxRoomSize)</span>
+<span class="cstat-no" title="statement not covered" >  return dungeon.tree.level</span>
+} // end NewDungeon
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 05 2017 13:28:29 GMT+1000 (AEST)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
