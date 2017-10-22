@@ -1,11 +1,11 @@
-###Random Dungeon Generator
+### Random Dungeon Generator
 
 [![total downloads](https://img.shields.io/npm/dt/random-dungeon-generator.svg)](https://www.npmjs.com/package/random-dungeon-generator) [![Travis](https://img.shields.io/travis/Matthew-Burfield/random-dungeon-generator.svg)](https://travis-ci.org/Matthew-Burfield/random-dungeon-generator) [![version](https://img.shields.io/npm/v/random-dungeon-generator.svg)](https://www.npmjs.com/package/random-dungeon-generator) [![license](https://img.shields.io/npm/l/random-dungeon-generator.svg)](https://www.npmjs.com/package/random-dungeon-generator) [![Code coverage](https://img.shields.io/codecov/c/github/Matthew-Burfield/random-dungeon-generator.svg)](https://www.npmjs.com/package/random-dungeon-generator)
 
 Create a Random Dungeon using a procedural dungeon generator.
 Based on a BSP Tree algorithm [http://www.roguebasin.com/index.php?title=Basic_BSP_Dungeon_generation](http://www.roguebasin.com/index.php?title=Basic_BSP_Dungeon_generation)
 
-##Simplest Example
+## Simplest Example
 
 ```javascript
 // create new dungeon with default width, height, max and min room size
@@ -16,7 +16,7 @@ const dungeon = NewDungeon({});
 // with options
 const options = {
     width: 50,
-    height 50,
+    height: 50,
     minRoomSize: 5,
     maxRoomSize: 20
 };
